@@ -1,0 +1,76 @@
+.HeroSection {
+  height: 800px;
+  background-color: #74002e;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  background-image: url(../../assets/images/hero_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .content-container {
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    z-index: 1;
+  }
+
+  .text-wrapper {
+    margin-top: 285px;
+    margin-left: 260px;
+    text-align: left;
+  }
+
+  .title {
+    font-size: 72px;
+    line-height: 72px;
+    letter-spacing: -3.6px;
+    max-width: 880px;
+    margin-bottom: 24px;
+  }
+
+  .description {
+    font-size: 22px;
+    line-height: 32px;
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+
+  .button {
+    width: 200px;
+    height: 60px;
+    background-color: white;
+    color: #14181a;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+
+    &.outline {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  .hero-wave {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('../../assets/images/hero_wave.svg');
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+}

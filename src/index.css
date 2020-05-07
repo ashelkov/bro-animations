@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: local('Manrope'),
+    url(./assets/fonts/Manrope/static/Manrope-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'DINPro';
+  src: local('DINPro'),
+    url(./assets/fonts/DINPro-Bold/DINPro-Bold.ttf) format('truetype');
+}

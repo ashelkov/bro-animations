@@ -1,0 +1,57 @@
+.Header {
+  height: 140px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+
+  .container {
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin: 0 20px;
+    height: 100%;
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style: none;
+
+      li {
+        &:not(:last-child) {
+          margin-right: 32px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+      }
+    }
+
+    button {
+      width: 140px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: white;
+      color: #14181a;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}

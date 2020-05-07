@@ -1,0 +1,33 @@
+.ServicesSection {
+  text-align: left;
+  padding: 150px 0;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+
+  &:nth-child(even) {
+    background-color: white;
+  }
+
+  .content-container {
+    max-width: 1140px;
+    margin: 0 20px;
+    border: 1px dotted white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .title {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+    line-height: 32px;
+    color: #656c7b;
+    margin-top: 32px;
+    max-width: 890px;
+  }
+}
