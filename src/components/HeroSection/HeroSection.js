@@ -1,9 +1,11 @@
 import React from 'react';
+import HeroWave from '../HeroWave/HeroWave';
 import './HeroSection.scss';
 
 function HeroSection() {
   return (
     <section className="HeroSection">
+      <HeroWave />
       <div className="content-container">
         <div className="text-wrapper">
           <h1 className="title">
@@ -17,7 +19,7 @@ function HeroSection() {
           <button className="button">Contact us</button>
         </div>
       </div>
-      <div className="hero-wave" />
+      {/* <div className="hero-wave" /> */}
     </section>
   );
 }
