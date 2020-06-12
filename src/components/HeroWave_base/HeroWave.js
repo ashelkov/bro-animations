@@ -1,4 +1,49 @@
-const waveHeight = 300;
+import React, { useEffect } from 'react';
+import './HeroWave.scss';
+
+function HeroWave() {
+  useEffect(() => {
+    start();
+  }, []);
+
+  return (
+    <div className="HeroWave">
+      <canvas id="hero-wave" />
+    </div>
+  );
+}
+
+export default HeroWave;
+
+// canvas
+
+let cvs, ctx;
+let nodes = 6;
+let wave;
+let waveHeight = 300;
+
+function start() {
+  cvs = document.getElementById('hero-wave');
+  ctx = cvs.getContext('2d');
+  resizeCanvas(cvs);
+  wave = new Wave('#D91965', 1, nodes);
+  update();
+}
+
+function update() {
+  ctx.clearRect(0, 0, cvs.width, cvs.height);
+  ctx.globalAlpha = 0.9;
+  wave.nodes.forEach(wave.bounce);
+  wave.draw();
+  requestAnimationFrame(update);
+}
+
+function resizeCanvas(canvas) {
+  canvas.width = window.innerWidth;
+  canvas.height = 800;
+}
+
+// wave
 
 class Wave {
   constructor(colour, lambda, nodes) {
@@ -39,5 +84,3 @@ class Wave {
     nodeArr[2] = nodeArr[2] + nodeArr[3];
   };
 }
-
-export default Wave;

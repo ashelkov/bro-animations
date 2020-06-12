@@ -18,9 +18,8 @@ export default HeroWave;
 // canvas
 
 let cvs, ctx;
-let nodes = 6;
+let nodes = 8;
 let wave;
-let waveHeight = 300;
 
 function start() {
   cvs = document.getElementById('hero-wave');
@@ -28,6 +27,9 @@ function start() {
   resizeCanvas(cvs);
   wave = new Wave('#D91965', 1, nodes);
   update();
+  document
+    .getElementById('hero-section')
+    .addEventListener('mousemove', wave.onMouseMove);
 }
 
 function update() {
@@ -49,11 +51,13 @@ class Wave {
   constructor(colour, lambda, nodes) {
     this.colour = colour;
     this.lambda = lambda;
+    this.radius = 100;
     this.nodes = [];
     for (var i = 0; i <= nodes + 2; i++) {
-      var temp = [((i - 1) * cvs.width) / nodes, 0, Math.random() * 200, 0.3];
+      var temp = [((i - 1) * cvs.width) / nodes, 0, 400, 0];
       this.nodes.push(temp);
     }
+    console.log(this.nodes);
   }
 
   draw = () => {
@@ -77,10 +81,21 @@ class Wave {
     }
     ctx.closePath();
     ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(this.clientX, this.clientY, 75, 0, 2 * Math.PI);
+    ctx.stroke();
   };
 
   bounce = (nodeArr) => {
-    nodeArr[1] = (waveHeight / 2) * Math.sin(nodeArr[2] / 20) + cvs.height / 2;
+    // nodeArr[1] = (waveHeight / 2) * Math.sin(nodeArr[2] / 20) + cvs.height / 2;
+    nodeArr[1] = cvs.height - nodeArr[2];
     nodeArr[2] = nodeArr[2] + nodeArr[3];
+  };
+
+  onMouseMove = (e) => {
+    this.clientX = e.clientX;
+    this.clientY = e.clientY;
+    console.log(e.clientX, e.clientY);
   };
 }
